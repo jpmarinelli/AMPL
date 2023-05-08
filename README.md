@@ -29,6 +29,7 @@ Documentation in readthedocs format is available [here](https://ampl.readthedocs
      - [Create pip environment](#create-pip-env)
      - [dgl and CUDA (**optional**)](#Install-dgl)
      - [Installation quick summary](#install-summary)
+  - [AMD Specific Installation](#AMD-Install)
   - [Install with Docker](#Install-docker)
 - [Tutorials](#AMPL-tutorials)
 - [Tests](#Tests)
@@ -217,6 +218,15 @@ python -m ipykernel install --user --name atomsci
 
 - After this process, you will have an `atomsci` pip environment with all dependencies installed. The name of the AMPL package is `atomsci-ampl` and is installed in the `install.sh` script to the environment.
 &nbsp;  
+
+<a name="AMD-Install"></a>
+### AMD Specific Installation
+
+Follow most of the instruction from [here](https://github.com/ATOMScience-org/AMPL/tree/master#install) except for step 8. Please use the following instead:
+
+```
+pip3 install --force-reinstall -r amd_requirements.txt # AMD-specific installation
+```
 
 <a name="Install-docker"></a>
 ### Install with Docker
