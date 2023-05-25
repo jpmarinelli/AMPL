@@ -163,10 +163,10 @@ pip3 install -e .
 <a name="install-summary"></a>
 #### Installation Quick Summary
 ```bash
-export ENVROOT=~/workspace # set ENVROOT example
+export ENVROOT=~/workspace       # set ENVROOT example
 cd $ENVROOT
-module load python/3.9.12 # use python3.9.12, for example
-python3 -m venv atomsci # create a new pip env
+module load python/3.9.12        # use python3.9.12, for example
+python3 -m venv atomsci          # create a new pip env
 source $ENVROOT/atomsci/bin/activate # activate the environemt
 
 export PYTHONUSERBASE=$ENVROOT/atomsci # set PYTHONUSERBASE
@@ -222,10 +222,23 @@ python -m ipykernel install --user --name atomsci
 <a name="AMD-Install"></a>
 ### AMD Specific Installation
 
-Follow most of the instruction from [here](https://github.com/ATOMScience-org/AMPL/tree/master#install) except for step 8. Please use the following instead:
+Follow most of the instruction from [here](https://github.com/ATOMScience-org/AMPL/tree/master#install) except for step 8. Please use `amd_requirements.txt` to install instead.
+
+A quick summary for AMD based setup:
 
 ```
-pip3 install --force-reinstall -r amd_requirements.txt # AMD-specific installation
+export ENVROOT=~/workspace
+cd $ENVROOT
+module load python/3.9.12             # use python3.9.12, for example
+python3 -m venv amd_env               # create a new AMD env
+source $ENVROOT/amd_env/bin/activate  # activate
+export PYTHONUSERBASE=$ENVROOT/amd_env
+python3 -m pip install pip --upgrade
+pip3 install --force-reinstall -r amd_requirements.txt # pip install
+cd ..                                 #  go to AMPL repo directory and run build
+./build.sh
+pip3 install -e .
+module load rocm/5.2.3                # load rocm module 5.2.3 for example
 ```
 
 <a name="Install-docker"></a>
